@@ -4,13 +4,14 @@ const SplashScreen = ({ onFinish }) => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setFadeOut(true), 2000); // 2 seconds delay
-    const finishTimeout = setTimeout(() => onFinish(), 2500);
+    const timeout = setTimeout(() => setFadeOut(true), 4000); // 6 seconds delay
+    const finishTimeout = setTimeout(() => onFinish(), 3500);
 
     return () => {
       clearTimeout(timeout);
       clearTimeout(finishTimeout);
     };
+    
   }, [onFinish]);
 
   return (
