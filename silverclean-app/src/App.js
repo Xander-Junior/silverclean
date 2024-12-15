@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import SplashScreen from './components/SplashScreen';
+import MainApp from './MainApp'; // Replace this with your actual app component
 
 function App() {
+  const [isSplashFinished, setIsSplashFinished] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!isSplashFinished ? (
+        <SplashScreen onFinish={() => setIsSplashFinished(true)} />
+      ) : (
+        <MainApp /> // Replace with your app's main component
+      )}
     </div>
   );
 }
